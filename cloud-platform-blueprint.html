@@ -893,15 +893,15 @@ flowchart TD
   <div class="phase">
     <div class="phase-side"><div class="ph-no">26 年 Q4</div><div class="ph-name">统一事件中心 &<br>车队核心改造</div></div>
     <div class="phase-body">
-      <div class="ph-goal">目标：统一事件中心与监控调度能力先行落地，客户服务专员与远程安全员分席处置、互不占用；车队管理五大核心模块同步升级。</div>
+      <div class="ph-goal">目标：监控调度平台接入统一事件中心，乘客运营事件（呼叫 / 站立 / 摔倒）统一接入、可配置告警、一屏处置；车队管理平台同步建设 AI 网联与泊车场景调度能力。</div>
       <ul>
-        <li><span class="pill p0">P0</span> 【监控调度平台】全局监控、路线监控上线；车辆监控由存量"实时信息 + 车辆监控"升级</li>
-        <li><span class="pill p0">P0</span> 【监控调度平台】事件告警：统一事件队列 + 报警规则引擎（心跳丢失 / 长时间不动 / 超速等，类型可配置）</li>
-        <li><span class="pill p0">P0</span> 【监控调度平台】远程通话、远程处置面板（远程喊话 / 开关门）</li>
-        <li><span class="pill p0">P0</span> 【车队管理平台】人员 / 车辆 / 站点 / 路线 / 任务五大模块改造升级</li>
-        <li><span class="pill p0">P0</span> 【车队管理平台】任务调度升级，支持多场景车辆调度（泊车 / 进站）</li>
+        <li><span class="pill p0">P0</span> 【监控调度平台】接入统一事件中心数据（乘客呼叫远程客服 / 乘客长时间站立 / 乘客摔倒）</li>
+        <li><span class="pill p0">P0</span> 【监控调度平台】统一事件中心报警类型 / 规则配置</li>
+        <li><span class="pill p0">P0</span> 【监控调度平台】乘客运营事件处置能力（远程通话）</li>
+        <li><span class="pill p0">P0</span> 【车队管理平台】实现 AI 网联，辅助驾驶配套产品车队管理能力（按需）</li>
+        <li><span class="pill p0">P0</span> 【车队管理平台】实现泊车场景车辆调度和任务管理能力</li>
       </ul>
-      <div class="ph-metric">验收：座舱事件 MTTR -50% · 控制指令 100% 审计留痕 · 多场景调度（泊车 / 进站）上线</div>
+      <div class="ph-metric">验收：三类乘客事件（呼叫 / 站立 / 摔倒）接入并完成远程通话处置闭环 · 报警类型 / 规则配置上线 · 泊车场景调度与任务管理跑通</div>
     </div>
   </div>
 
