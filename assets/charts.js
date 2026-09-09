@@ -19,7 +19,7 @@
   var elWorkload = document.getElementById('chart-workload');
   if (elWorkload) {
     var chartWorkload = echarts.init(elWorkload, null, { renderer: 'svg' });
-    var totals = [230, 445, 455, 285, 280, 405, 480, 260];
+    var totals = [230, 445, 455, 285, 280, 405, 480, 170];
     chartWorkload.setOption({
       animation: false,
       tooltip: tip({ axisPointer: { type: 'shadow' } }),
@@ -27,10 +27,10 @@
       grid: { left: 175, right: 60, top: 20, bottom: 56 },
       xAxis: Object.assign({ type: 'value', name: '人天', splitLine: { lineStyle: { color: rule } } }, baseAxis),
       yAxis: Object.assign({ type: 'category', inverse: true,
-        data: ['统一访问门户 (230)', '车队管理平台 (445)', '监控调度平台 (455)', '运营管理平台 (285)', '数据服务平台 (280)', '远程驾驶平台 (405)', '共享中台能力层 (480)', 'AI / Agent 能力 (260)'] }, baseAxis),
+        data: ['统一访问门户 (230)', '车队管理平台 (445)', '监控调度平台 (455)', '运营管理平台 (285)', '数据服务平台 (280)', '远程驾驶平台 (405)', '共享中台能力层 (480)', 'AI / Agent 能力 (170)'] }, baseAxis),
       series: [
         { name: '新建', type: 'bar', stack: 'total', barWidth: 24, itemStyle: { color: '#7c3aed' },
-          data: [160, 115, 280, 0, 280, 55, 480, 260] },
+          data: [160, 115, 280, 0, 280, 55, 480, 170] },
         { name: '改造升级', type: 'bar', stack: 'total', itemStyle: { color: accent },
           data: [40, 315, 150, 270, 0, 325, 0, 0] },
         { name: '跨平台对接', type: 'bar', stack: 'total', itemStyle: { color: '#b45309' },
