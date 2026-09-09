@@ -255,27 +255,23 @@
 
   <div class="table-wrap">
     <table>
-      <thead><tr><th>竞品</th><th>云端产品组织：统一入口 + 子平台 / 中心</th><th>与本蓝图的印证</th></tr></thead>
+      <thead><tr><th>竞品</th><th>云端产品组织：统一入口 + 子平台 / 中心</th></tr></thead>
       <tbody>
         <tr>
           <td><strong>百度 Apollo</strong><br><span style="font-size:0.85rem;color:var(--muted)">MaaS 一站式出行服务</span></td>
           <td>一站式云端服务体系按四大子平台组织——<strong>车队管理</strong>（资源 / 任务 / 运维 / 订单）、<strong>运营管理</strong>（用户 / 订单 / 营销 / 终端 / 渠道）、<strong>监控调度</strong>（运营监控 / 单车监控 / 视频监控 / 报警）、<strong>数据服务</strong>（数据大屏 / 报表），另含用户出行终端与智能调度引擎，多端接口接入第三方运力。</td>
-          <td>四大子平台与本蓝图的车队管理、运营管理、监控调度、数据服务平台一一对应；差异点：远程驾驶（5G 云代驾）在 Apollo 体系中是独立产品，本蓝图将其作为子平台纳入统一体系。</td>
         </tr>
         <tr>
           <td><strong>小马智行</strong></td>
           <td>运营支撑按三大平台组织——<strong>无人化远程协助平台</strong>、<strong>自动驾驶车队管理平台</strong>、<strong>自动化服务体验管理</strong>，另有数字化工单系统派发充电、清洁、保养等地面任务。</td>
-          <td>远程协助独立成平台，印证远程驾驶平台的独立价值；"车队管理 + 服务体验"双平台对应本蓝图的车队管理 + 运营管理。</td>
         </tr>
         <tr>
           <td><strong>文远知行</strong></td>
           <td><strong>WeRide One</strong> 通用技术平台统一支撑 Robotaxi / Robobus / Robovan / Robosweeper / ADAS 五条产品线，云端能力含仿真、数据分析、云 IDE 与远程协助平台。</td>
-          <td>一套平台适配多产品线，印证共享中台复用、多产品线共用一套云端产品的组织方式。</td>
         </tr>
         <tr>
           <td><strong>滴滴自动驾驶</strong></td>
           <td>慧桔港自动化运维平台按五大中心组织——<strong>用户、业务、安全、支持、运维</strong>，前台运营与后台运维一体化，宣称全流程自动化率 90%。</td>
-          <td>"中心化"组织与子平台划分同构；安全中心对应本蓝图监控调度 + 远程驾驶构成的安全运营域。</td>
         </tr>
       </tbody>
     </table>
@@ -663,7 +659,7 @@ flowchart LR
           <div class="arch-card"><div class="ac-name">统一车辆档案</div><div class="ac-desc">车辆主数据 · 全生命周期</div></div>
           <div class="arch-card"><div class="ac-name">音视频 · 地图 · 网关</div><div class="ac-desc">通话 / 视频服务 · 开放 API 网关</div></div>
         </div>
-        <div class="arch-band"><b>AI / Agent 能力</b>　座舱服务 · 调度 · 维保 · 复盘 Agent ｜ 统一 Copilot 助手（建议自动化，控制人在环）</div>
+        <div class="arch-band"><b>AI / Agent 能力</b>　座舱服务 · 调度 Agent ｜ 统一 Copilot 助手（建议自动化，控制人在环）</div>
       </div>
 
       <div class="arch-flow">
@@ -823,7 +819,7 @@ flowchart LR
   </div>
 
   <h3><span class="h3-no">5.7</span>AI 能力融入：Agent 工作流与 AI 助手</h3>
-  <p>AI 能力的引入遵循一条铁律：<mark class="key">建议可以自动化，控制必须人在环</mark>。这与小马智行"协助员从不直接控制车辆"、Waymo"ADS 保留控制权"的行业共识同向。一个统一 Copilot 助手嵌入各子平台，四个领域 Agent 处置专业场景；事件分诊不设独立 Agent，由统一事件中心内置的规则路由与历史事件推荐承担（见 4.2）。</p>
+  <p>AI 能力的引入遵循一条铁律：<mark class="key">建议可以自动化，控制必须人在环</mark>。这与小马智行"协助员从不直接控制车辆"、Waymo"ADS 保留控制权"的行业共识同向。一个统一 Copilot 助手嵌入各子平台，两个领域 Agent 处置专业场景；事件分诊不设独立 Agent，由统一事件中心内置的规则路由与历史事件推荐承担（见 4.2）。</p>
 
   <figure class="diagram">
     <pre class="mermaid">
@@ -837,8 +833,6 @@ flowchart TD
   subgraph AGENTS["领域 Agent"]
     G2["座舱服务 Agent<br/>乘客意图理解 · 低风险自动应答"]
     G3["调度 Agent<br/>运力预测 · 排班优化"]
-    G4["维保 Agent<br/>故障预测 · 工单生成"]
-    G5["复盘分析 Agent<br/>事件归因 · 周报生成 · 知识沉淀"]
   end
   subgraph HUMAN["人在回路"]
     H1["远程安全员席位"]
@@ -849,17 +843,12 @@ flowchart TD
   ECR -- "脱困 / 接管事件路由席位" --> H1
   ECR --> G2
   ECR --> G3
-  ECR --> G4
   G2 -- "需人工 · 客服专员处置" --> H2
   G3 -- "排班与调度草稿" --> H2
-  G4 -- "工单与维修任务" --> H2
-  ECR --> G5
-  G2 --> G5
-  G5 -- "知识库反哺事件推荐" --> ECR
   COPILOT -. "嵌入各子平台" .-> H1
   COPILOT -.-> H2
     </pre>
-    <figcaption><b>图 5-1</b> Agent 工作流编排：统一事件中心以规则路由总控事件流，各领域 Agent 处置专业场景，控制类动作一律经人工确认，复盘结果沉淀回知识库。</figcaption>
+    <figcaption><b>图 5-1</b> Agent 工作流编排：统一事件中心以规则路由总控事件流，各领域 Agent 处置专业场景，控制类动作一律经人工确认。</figcaption>
   </figure>
 
   <div class="table-wrap">
@@ -868,8 +857,6 @@ flowchart TD
       <tbody>
         <tr><td>座舱服务 Agent</td><td>语音意图理解、情绪识别、安抚话术生成、常见问题自动应答</td><td>自动应答限播报类；喊话内容人工审核</td><td>监控调度 · 运营管理</td></tr>
         <tr><td>调度 Agent</td><td>运力需求预测、排班与任务优化草稿、补能窗口建议</td><td>生成草稿，采纳需人工确认</td><td>车队管理</td></tr>
-        <tr><td>维保 Agent</td><td>故障预测、自动创建工单并派发、备件提醒</td><td>工单创建可自动，派发可自动</td><td>车队管理</td></tr>
-        <tr><td>复盘分析 Agent</td><td>事件归因、MTTR 与人车比分析、周报自动生成</td><td>全自动化（只读分析 + 文档生成）</td><td>数据服务</td></tr>
       </tbody>
     </table>
   </div>
@@ -940,7 +927,6 @@ flowchart TD
         <li><span class="pill p3">P3</span> 【数据服务平台】各项目数据看板，运营周报，数据指标体系</li>
         <li><span class="pill p3">P3</span> 【运营管理平台】乘客 / 订单 / 营销 / 终端四大模块改造归位</li>
         <li><span class="pill p3">P3</span> 模块化交付能力：城市版 / 园区版版本组合、最小集版本可售卖</li>
-        <li><span class="pill p3">P3</span> 【AI 能力】维保 Agent：故障预测、自动创建工单并派发</li>
       </ul>
       <div class="ph-metric">验收：指标口径 100% 统一 · 周报自动生成率 ≥ 80% · 新项目交付配置周期 -50%</div>
     </div>
@@ -983,7 +969,7 @@ flowchart TD
         <tr><td>数据服务平台</td><td>✓</td><td>可增购</td><td>园区版保留基础统计，深度经营分析按需增购</td></tr>
         <tr><td>远程驾驶平台</td><td>✓</td><td>可增购</td><td>低速封闭场景安全兜底需求较低，可后置</td></tr>
         <tr><td>共享中台能力层</td><td>✓</td><td>✓</td><td>事件中心 / 指令通道 / 车辆档案 / API 网关为底座能力</td></tr>
-        <tr><td>AI / Agent 能力</td><td>增值模块</td><td>增值模块</td><td>座舱服务 / Copilot / 复盘 Agent 按需选配</td></tr>
+        <tr><td>AI / Agent 能力</td><td>增值模块</td><td>增值模块</td><td>座舱服务 Agent / Copilot 按需选配</td></tr>
       </tbody>
     </table>
   </div>
@@ -1011,7 +997,7 @@ flowchart LR
 <section class="chapter" id="ch8">
   <div class="chapter-head"><span class="chapter-no">08</span><h2>改造工作量（人天）</h2></div>
 
-  <p class="lead">全量改造估算约 <mark class="key">2840 人天</mark>，含 15% 风险缓冲后约 <mark class="key">3266 人天</mark>。按 10 人团队（前端 2 / 后端 4 / 测试 2 / 产品与项目 2）约 12 个月（2026 年 Q4 – 2027 年 Q3）完成，与第六章 Roadmap 季度计划匹配。</p>
+  <p class="lead">全量改造估算约 <mark class="key">2750 人天</mark>，含 15% 风险缓冲后约 <mark class="key">3163 人天</mark>。按 10 人团队（前端 2 / 后端 4 / 测试 2 / 产品与项目 2）约 12 个月（2026 年 Q4 – 2027 年 Q3）完成，与第六章 Roadmap 季度计划匹配。</p>
 
   <h3><span class="h3-no">8.1</span>估算口径与假设</h3>
   <ul class="plain">
@@ -1084,21 +1070,20 @@ flowchart LR
         <tr><td>统一车辆档案（主数据）</td><td><span class="pill new">新建</span></td><td>车辆 / 设备 / 传感器主数据，各平台引用</td><td class="num-cell">90</td></tr>
         <tr><td>开放 API 网关</td><td><span class="pill new">新建</span></td><td>对外接口、鉴权计量、第三方运力接入</td><td class="num-cell">80</td></tr>
 
-        <tr class="group-row"><td colspan="4">AI / Agent 能力 <span class="pd">小计 260 人天</span></td></tr>
+        <tr class="group-row"><td colspan="4">AI / Agent 能力 <span class="pd">小计 170 人天</span></td></tr>
         <tr><td>座舱服务 Agent</td><td><span class="pill new">新建</span></td><td>语音意图识别、话术生成、自动应答</td><td class="num-cell">70</td></tr>
         <tr><td>统一 AI 助手 Copilot</td><td><span class="pill new">新建</span></td><td>对话查询、受控操作、各平台嵌入</td><td class="num-cell">100</td></tr>
-        <tr><td>复盘分析 / 周报 Agent</td><td><span class="pill new">新建</span></td><td>事件归因、报告生成、知识库沉淀</td><td class="num-cell">90</td></tr>
 
-        <tr class="subtotal-row"><td colspan="3">明细合计</td><td class="num-cell">2840</td></tr>
-        <tr><td colspan="3" style="color:var(--muted)">项目管理 / 联调 / 风险缓冲（约 15%）</td><td class="num-cell" style="color:var(--muted)">426</td></tr>
-        <tr class="total-row"><td colspan="3">总计</td><td class="num-cell">约 3266 人天</td></tr>
+        <tr class="subtotal-row"><td colspan="3">明细合计</td><td class="num-cell">2750</td></tr>
+        <tr><td colspan="3" style="color:var(--muted)">项目管理 / 联调 / 风险缓冲（约 15%）</td><td class="num-cell" style="color:var(--muted)">413</td></tr>
+        <tr class="total-row"><td colspan="3">总计</td><td class="num-cell">约 3163 人天</td></tr>
       </tbody>
     </table>
   </div>
 
   <h3><span class="h3-no">8.3</span>工作量分布</h3>
   <figure class="chart-figure">
-    <figcaption>各子平台改造工作量分布（人天，明细口径 2840）</figcaption>
+    <figcaption>各子平台改造工作量分布（人天，明细口径 2750）</figcaption>
     <div class="chart-sub">按建设方式拆分：新建 / 改造升级 / 跨平台对接。纵轴标签含各平台小计</div>
     <div id="chart-workload" style="width:100%;min-height:420px"></div>
   </figure>
@@ -1134,7 +1119,7 @@ flowchart LR
   </div>
 
   <div class="phase">
-    <div class="phase-side"><div class="ph-no">PHASE 3</div><div class="ph-name">车队能力补齐 &<br>Agent 上线</div><div class="ph-time">27 年 Q2 · 约 395 人天</div></div>
+    <div class="phase-side"><div class="ph-no">PHASE 3</div><div class="ph-name">车队能力补齐 &<br>Agent 上线</div><div class="ph-time">27 年 Q2 · 约 305 人天</div></div>
     <div class="phase-body">
       <div class="ph-goal">目标：车队管理平台模块补齐，Agent 承接预处理与自动化应答，席位效率开始爬坡。</div>
       <ul>
