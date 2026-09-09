@@ -225,7 +225,7 @@
 <section class="chapter" id="ch1">
   <div class="chapter-head"><span class="chapter-no">01</span><h2>现状盘点</h2></div>
 
-  <p class="lead">公司云端产品目前是两座孤岛：车队管理平台承载 Robobus 运营全链路，远程驾驶平台承载车辆脱困与远程接管。2026 年 8 月对车队管理平台 QA 环境（mogogo-qa.zhidaozhixing.com）做了逐模块实测浏览，结合远程驾驶平台的业务输入，并对照四家头部竞品与公司内部运营团队的调研（见 1.3），形成本章盘点。两平台各自功能完整，割裂发生在<mark class="key">跨平台的角色动线</mark>上。</p>
+  <p class="lead">公司云端产品目前是两座孤岛：车队管理平台承载 Robobus 运营全链路，远程驾驶平台承载车辆脱困与远程接管。2026 年 8 月对车队管理平台 QA 环境（mogogo-qa.zhidaozhixing.com）做了逐模块实测浏览，结合远程驾驶平台的业务输入，并对照四家头部竞品与公司内部运营团队的调研及海外项目商机（见 1.3），形成本章盘点。两平台各自功能完整，割裂发生在<mark class="key">跨平台的角色动线</mark>上。</p>
 
   <h3><span class="h3-no">1.1</span>车队管理平台：Robobus 运营全链路</h3>
   <p>平台定位为自动驾驶小巴（Robobus）运营管理系统，菜单分四域：运营（Bus）、运维管理、基础配置与首页工作台。实测确认的模块清单如下。</p>
@@ -282,6 +282,12 @@
   <ul class="plain">
     <li><strong>远程安全员（RO）</strong>：唯一拥有车辆控制权（如紧急停车、接管）的人员，经过专门培训和授权，负责风险场景下的远程接管与车辆脱困。</li>
     <li><strong>远程协助人员</strong>：主要负责判断车内事件的风险，并通过喊话、远程沟通等方式进行辅助，<mark class="key">无权直接控制车辆</mark>。</li>
+  </ul>
+
+  <h4>项目商机</h4>
+  <ul class="plain">
+    <li><strong>新加坡项目</strong>：标书与 LTA / SBST 团队说明，远程 Service Controller 可使用 AV FMS 平台监控运营事件并远程处置，Remote Controller 负责协助车辆脱困。</li>
+    <li><strong>卢森堡</strong>：自动驾驶道路车辆法案要求组织必须清晰拆分<mark class="key">远程监控、远程协助、远程接管</mark>三类职能；管理体系须覆盖操作员管理、各类标准化处置流程、事故应急、人员交接班、操作员工作负荷管控。</li>
   </ul>
 
   <h3><span class="h3-no">1.4</span>核心痛点</h3>
