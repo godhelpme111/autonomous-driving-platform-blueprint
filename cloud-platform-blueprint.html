@@ -886,29 +886,29 @@ flowchart TD
   <div class="phase">
     <div class="phase-side"><div class="ph-no">26 年 Q4</div><div class="ph-name">远程协助 &<br>统一访问门户<br>MVP 版本上线</div></div>
     <div class="phase-body">
-      <div class="ph-goal">目标：自动驾驶车辆管理平台接入统一事件中心，乘客运营事件（呼叫 / 站立 / 摔倒）统一接入、可配置告警、一屏处置，远程协助能力上线；统一访问门户 MVP 版本落地，SSO 单点登录、二平台子应用挂接、账号与权限数据迁移。</div>
+      <div class="ph-goal">目标：自动驾驶车辆管理平台接入统一事件中心，乘客运营事件（呼叫 / 长时间站立 / 落座不系安全带 / 开关门异常）统一接入、可配置告警、一屏处置，坐席与座舱事件联动处置，远程协助能力上线；统一访问门户 MVP 版本落地，SSO 单点登录、二平台子应用挂接、账号与权限数据迁移，审计日志统一管理。</div>
       <ul>
-        <li><span class="pill p0">P0</span> 【自动驾驶车辆管理平台】接入统一事件中心数据（乘客呼叫远程客服 / 乘客长时间站立 / 乘客摔倒）</li>
+        <li><span class="pill p0">P0</span> 【自动驾驶车辆管理平台】接入统一事件中心数据（乘客呼叫远程客服 / 乘客长时间站立 / 乘客落座不系安全带/开关门异常）</li>
         <li><span class="pill p0">P0</span> 【自动驾驶车辆管理平台】统一事件中心报警类型 / 规则配置</li>
         <li><span class="pill p0">P0</span> 【自动驾驶车辆管理平台】乘客运营事件处置能力（远程通话）</li>
+        <li><span class="pill p0">P0</span> 【自动驾驶车辆管理平台】坐席与座舱事件联动处置</li>
         <li><span class="pill p0">P0</span> 【统一访问门户】实现 SSO 单点登录，统一用户 / 角色权限 / 城市 / 项目管理</li>
         <li><span class="pill p0">P0</span> 【统一访问门户】自动驾驶车辆管理平台、远程驾驶二平台以子应用挂接，账号与权限数据迁移</li>
+        <li><span class="pill p0">P0</span> 【统一访问门户】审计日志统一管理（登录日志 + 操作日志 + 系统日志）</li>
       </ul>
-      <div class="ph-metric">验收：三类乘客事件（呼叫 / 站立 / 摔倒）接入并完成远程通话处置闭环 · 报警类型 / 规则配置上线 · SSO 单点登录上线、二平台子应用挂接完成</div>
+      <div class="ph-metric">验收：乘客运营事件（呼叫 / 长时间站立 / 落座不系安全带 / 开关门异常）接入并完成远程通话处置闭环 · 报警类型 / 规则配置上线 · 坐席与座舱事件联动处置跑通 · SSO 单点登录上线、二平台子应用挂接完成 · 审计日志统一管理上线</div>
     </div>
   </div>
 
   <div class="phase">
     <div class="phase-side"><div class="ph-no">27 年 Q1</div><div class="ph-name">远程协助 &<br>统一访问门户<br>标准版上线</div></div>
     <div class="phase-body">
-      <div class="ph-goal">目标：自动驾驶车辆管理平台扩展车内安全类事件接入与路线态势监控，坐席与座舱事件联动处置；统一访问门户标准版上线，审计日志统一管理。</div>
+      <div class="ph-goal">目标：自动驾驶车辆管理平台扩展车内安全类事件接入与路线态势监控；统一访问门户标准版上线。</div>
       <ul>
         <li><span class="pill p1">P1</span> 【自动驾驶车辆管理平台】接入不少于 3 类统一事件中心数据（车内吸烟 / 车内打架 / 乘客超载…）</li>
         <li><span class="pill p1">P1</span> 【自动驾驶车辆管理平台】支持运营路线态势监控</li>
-        <li><span class="pill p1">P1</span> 【自动驾驶车辆管理平台】坐席与座舱事件联动处置</li>
-        <li><span class="pill p1">P1</span> 【统一访问门户】审计日志统一管理（登录日志 + 操作日志 + 系统日志）</li>
       </ul>
-      <div class="ph-metric">验收：车内安全类事件接入 ≥ 3 类并上线告警 · 运营路线态势监控上线 · 坐席与座舱事件联动处置跑通 · 审计日志统一管理上线</div>
+      <div class="ph-metric">验收：车内安全类事件接入 ≥ 3 类并上线告警 · 运营路线态势监控上线</div>
     </div>
   </div>
 
